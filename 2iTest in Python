@@ -1,0 +1,25 @@
+def pairs_with_sum(arr, X):
+    # Create an empty set to store numbers that have been seen
+    seen_numbers = set()
+    
+    # Initialize a variable to store the count of valid pairs
+    count = 0
+    
+    # Iterate through each number in the input array
+    for num in arr:
+        # Calculate the complement needed to reach the target sum X
+        complement = X - num
+        
+        # Check if the complement is in the set of seen numbers
+        if complement in seen_numbers:
+            # If yes, increment the count of valid pairs
+            count += 1
+            # Remove the complement from the set to ensure each number is used only once
+            seen_numbers.remove(complement)
+        else:
+            # If the complement is not seen yet, add the current number to the set
+            seen_numbers.add(num)
+    
+    # Return the final count of valid pairs
+    return count
+
